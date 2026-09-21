@@ -24,9 +24,6 @@ public class PaymentService {
     @Autowired
     private BookingRepository bookingRepository;
 
-    @Autowired
-    private EmailService emailService;
-
     // ==========================================
     // MAKE PAYMENT
     // ==========================================
@@ -104,10 +101,7 @@ public class PaymentService {
         // 5. Save Payment
         paymentRepository.save(payment);
 
-        // 6. Send booking confirmation email
-        emailService.sendBookingConfirmation(payment);
-
-        // 7. Return response
+        // 6. Return response
         return "Payment Successful";
     }
 
